@@ -1,0 +1,83 @@
+:root {
+    --dark: #131313;
+    --light: white;
+    --bg-color: var(--light);
+    --spinner-border-width: 3px;
+    --inner-spinner-width: 150px;
+    --outer-spinner-width: calc(var(--inner-spinner-width) + calc(var(--spinner-border-width) * 2))
+}
+
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+    margin: 0;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--bg-color);
+    color: black;
+}
+
+.dark {
+    --bg-color: var(--dark);
+    color: white;
+}
+
+.dark .theme-toggler {
+    color: white;
+}
+
+.page-title {
+    font-size: 4rem;
+    font-weight: 200;
+    margin-bottom: 4rem;
+    text-align: center;
+}
+
+.theme-toggler-parent {
+    margin-bottom: 4rem;
+}
+
+.theme-toggler {
+    font-family: 'Source Sans Pro', sans-serif;
+    vertical-align: middle;
+    background-color: var(--bg-color);
+    text-align: center;
+    font-weight: 300;
+    font-size: 1.2rem;
+    padding: 1rem 2rem;
+    border: 0;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.theme-toggler:hover {
+    filter: invert(100%);
+    transition: 0.4s;
+}
+
+.custom-spinner {
+    height: var(--outer-spinner-width);
+    width: var(--outer-spinner-width);
+    background: linear-gradient(0deg, var(--bg-color) 40%, #00a0ff 72%, var(--bg-color)) padding-box;
+    border-radius: 50%;
+    border: var(--spinner-border-width) solid transparent;
+    animation: spin 0.9s linear infinite;
+}
+
+.custom-spinner-inner {
+    height: var(--inner-spinner-width);
+    width: var(--inner-spinner-width);
+    background-color: var(--bg-color);
+    border-radius: 50%;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
